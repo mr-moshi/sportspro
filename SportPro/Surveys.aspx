@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Contact List" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ContactList.aspx.cs" Inherits="ContactList" %>
+﻿<%@ Page Title="Surveys" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Surveys.aspx.cs" Inherits="Surveys" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">

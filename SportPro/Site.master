@@ -67,6 +67,8 @@
                     <ul id="menu">
                         <li><a runat="server" href="~/">Home</a></li>
                         <li><a runat="server" href="~/About">About</a></li>
+                        <li><a id="A2" runat="server" href="~/Customers">Customers</a></li>
+                        <li><a id="A3" runat="server" href="~/Surveys">Surveys</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                     </ul>
                 </nav>
