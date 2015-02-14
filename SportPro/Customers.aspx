@@ -32,8 +32,11 @@
              </td>
          </tr>
      </table>
-    <asp:Label ID="test" runat="server" Text=""></asp:Label>
-</asp:Content>
+    <asp:Button ID="btnAdd" runat="server" Text="Add to Contact List" OnClick="btnAdd_Click" />
+
+     <asp:Button ID="btnDisplay" runat="server" Text="Display Contact List" />
+
+    </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">
     <style type="text/css">
         .auto-style1 {

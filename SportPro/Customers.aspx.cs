@@ -12,7 +12,7 @@ public partial class Customers : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Page.IsPostBack) {
+        if (Page.IsPostBack) {
             ddlCustomers_SelectedIndexChanged(ddlCustomers, null);
         }
     }
@@ -38,5 +38,9 @@ public partial class Customers : System.Web.UI.Page
         lblAddress2.Text = selectedCustomer.City + ", " + selectedCustomer.State + " " + selectedCustomer.Zipcode;
         lblEmail.Text = selectedCustomer.Email;
         lblPhone.Text = selectedCustomer.Phone;
+    }
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+               
     }
 }
