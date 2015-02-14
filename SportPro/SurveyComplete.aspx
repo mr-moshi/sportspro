@@ -1,6 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="SurveyComplete.aspx.cs" Inherits="SurveyComplete" %>
-
-<%@ Page Title="Survey Complete" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="SurveyComplete.aspx.cs" Inherits="SurveyComplete" %>
+﻿<%@ Page Title="Survey Complete" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="SurveyComplete.aspx.cs" Inherits="SurveyComplete" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">
