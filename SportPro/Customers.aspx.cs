@@ -9,9 +9,11 @@ using System.Data;
 public partial class Customers : System.Web.UI.Page
 {
     Customer selectedCustomer = new Customer();
-
+   
     protected void Page_Load(object sender, EventArgs e)
     {
+        ddlCustomers.SelectedIndex = 0;
+        test.Text = (ddlCustomers.SelectedValue.ToString());
         fillLabels();
     }
     protected void ddlCustomers_SelectedIndexChanged(object sender, EventArgs e)
@@ -22,7 +24,7 @@ public partial class Customers : System.Web.UI.Page
     protected void fillLabels()
     {
         DataView dvSQL = (DataView)sqlDDLCustomer.Select(DataSourceSelectArguments.Empty);
-        
+
         foreach (DataRowView drvSQL in dvSQL)
         {
             if (drvSQL["CustomerID"].ToString() == ddlCustomers.SelectedValue)

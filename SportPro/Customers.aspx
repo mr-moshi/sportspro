@@ -32,7 +32,7 @@
              </td>
          </tr>
      </table>
-
+    <asp:Label ID="test" runat="server" Text=""></asp:Label>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">
     <style type="text/css">
