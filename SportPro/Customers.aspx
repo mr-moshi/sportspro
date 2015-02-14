@@ -6,20 +6,11 @@
         <h2>Search and view your customer contact information</h2>
     </hgroup>
         <br /><br />
-        <label>Select a customer: 
+        <label>Select a customer:&nbsp;</label>
      <asp:DropDownList ID="ddlCustomers" runat="server" DataSourceID="sqlDDLCustomer" DataTextField="Name" DataValueField="CustomerID" OnSelectedIndexChanged="ddlCustomers_SelectedIndexChanged" AutoPostBack="True">
      </asp:DropDownList>
      <asp:SqlDataSource ID="sqlDDLCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupport %>" SelectCommand="SELECT DISTINCT * FROM [Customers] ORDER BY [Name]"></asp:SqlDataSource>
-     </label>
      <br />
-
-    <asp:SqlDataSource ID="sqlSelected" runat="server" 
-        ConnectionString="<%$ ConnectionStrings:TechSupport %>" 
-        SelectCommand="SELECT * FROM [Customers] WHERE ([CustomerID] = @CustomerID)">
-        <SelectParameters>
-            <asp:ControlParameter ControlID="ddlCustomers" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
-        </SelectParameters>
-    </asp:SqlDataSource>
 
      <table class="auto-style1">
          <tr>

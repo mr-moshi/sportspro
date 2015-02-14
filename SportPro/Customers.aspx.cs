@@ -8,22 +8,32 @@ using System.Data;
 
 public partial class Customers : System.Web.UI.Page
 {
+    Customer selectedCustomer = new Customer();
+
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        fillLabels();
     }
     protected void ddlCustomers_SelectedIndexChanged(object sender, EventArgs e)
     {
+        fillLabels();
+    }
+
+    protected void fillLabels()
+    {
         DataView dvSQL = (DataView)sqlDDLCustomer.Select(DataSourceSelectArguments.Empty);
-        Customer selectedCustomer = new Customer();
+        
         foreach (DataRowView drvSQL in dvSQL)
         {
             if (drvSQL["CustomerID"].ToString() == ddlCustomers.SelectedValue)
-                selectedCustomer = new Customer(drvSQL["Name"].ToString(), drvSQL["Address"].ToString(), 
-                    drvSQL["City"].ToString(), drvSQL["Zipcode"].ToString(), drvSQL["Phone"].ToString(), 
-                    drvSQL["Email"].ToString(), (Char)drvSQL["State"], (int)drvSQL["CustomerID"]);
+                selectedCustomer = new Customer(drvSQL["Name"].ToString(), drvSQL["Address"].ToString(),
+                    drvSQL["City"].ToString(), drvSQL["Zipcode"].ToString(), drvSQL["Phone"].ToString(),
+                    drvSQL["Email"].ToString(), drvSQL["State"].ToString(), (int)drvSQL["CustomerID"]);
         }
 
         lblAddress1.Text = selectedCustomer.Address;
+        lblAddress2.Text = selectedCustomer.City + ", " + selectedCustomer.State + " " + selectedCustomer.Zipcode;
+        lblEmail.Text = selectedCustomer.Email;
+        lblPhone.Text = selectedCustomer.Phone;
     }
 }
