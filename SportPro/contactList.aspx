@@ -7,10 +7,16 @@
     </hgroup>
     <section>
        <p>&nbsp;</p>
-        <div>
-            <p>
-                Page content...
-            </p>
+        <div style="height: 363px">
+          
+            <asp:ListBox ID="ListBox1" runat="server" Height="242px" Width="632px"></asp:ListBox>
+            
+            <div style="height: 51px; width: 653px">
+                <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" />
+                <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" />
+                <asp:Button ID="btnSelectAddCusts" runat="server" Text="Select Additional Customers" />
+            </div>
+          
         </div>
      </section>
 </asp:Content>
