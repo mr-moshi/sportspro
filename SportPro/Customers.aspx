@@ -16,19 +16,21 @@
      <table class="auto-style1">
          <tr>
              <td class="auto-style2">Address: </td>
-             <td><asp:Label ID="Label1" runat="server" Text="Label"></asp:Label></td>
+             <td><asp:Label ID="lblAddress1" runat="server"></asp:Label></td>
          </tr>
          <tr>
              <td class="auto-style2">&nbsp;</td>
-             <td><asp:Label ID="Label2" runat="server" Text="Label"></asp:Label></td>
+             <td><asp:Label ID="lblAddress2" runat="server"></asp:Label></td>
          </tr>
          <tr>
              <td class="auto-style2">Phone: </td>
-             <td><asp:Label ID="Label3" runat="server" Text="Label"></asp:Label></td>
+             <td><asp:Label ID="lblPhone" runat="server"></asp:Label></td>
          </tr>
          <tr>
              <td class="auto-style2">Email: </td>
-             <td>&nbsp;</td>
+             <td>
+                 <asp:Label ID="lblEmail" runat="server"></asp:Label>
+             </td>
          </tr>
      </table>
 
