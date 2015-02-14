@@ -7,11 +7,19 @@
     </hgroup>
         <br /><br />
         <label>Select a customer: 
-     <asp:DropDownList ID="ddlCustomers" runat="server" DataSourceID="SqlDataSource1" DataTextField="Name" DataValueField="CustomerID" OnSelectedIndexChanged="ddlCustomers_SelectedIndexChanged">
+     <asp:DropDownList ID="ddlCustomers" runat="server" DataSourceID="sqlDDLCustomer" DataTextField="Name" DataValueField="CustomerID" OnSelectedIndexChanged="ddlCustomers_SelectedIndexChanged" AutoPostBack="True">
      </asp:DropDownList>
-     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupport %>" SelectCommand="SELECT DISTINCT * FROM [Customers] ORDER BY [Name]"></asp:SqlDataSource>
+     <asp:SqlDataSource ID="sqlDDLCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupport %>" SelectCommand="SELECT DISTINCT * FROM [Customers] ORDER BY [Name]"></asp:SqlDataSource>
      </label>
      <br />
+
+    <asp:SqlDataSource ID="sqlSelected" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:TechSupport %>" 
+        SelectCommand="SELECT * FROM [Customers] WHERE ([CustomerID] = @CustomerID)">
+        <SelectParameters>
+            <asp:ControlParameter ControlID="ddlCustomers" Name="CustomerID" PropertyName="SelectedValue" Type="Int32" />
+        </SelectParameters>
+    </asp:SqlDataSource>
 
      <table class="auto-style1">
          <tr>
