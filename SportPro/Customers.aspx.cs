@@ -12,9 +12,9 @@ public partial class Customers : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        ddlCustomers.SelectedIndex = 0;
-        test.Text = (ddlCustomers.SelectedValue.ToString());
-        fillLabels();
+        if (!Page.IsPostBack) {
+            ddlCustomers_SelectedIndexChanged(ddlCustomers, null);
+        }
     }
     protected void ddlCustomers_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -32,6 +32,7 @@ public partial class Customers : System.Web.UI.Page
                     drvSQL["City"].ToString(), drvSQL["Zipcode"].ToString(), drvSQL["Phone"].ToString(),
                     drvSQL["Email"].ToString(), drvSQL["State"].ToString(), (int)drvSQL["CustomerID"]);
         }
+        dvSQL.Dispose();
 
         lblAddress1.Text = selectedCustomer.Address;
         lblAddress2.Text = selectedCustomer.City + ", " + selectedCustomer.State + " " + selectedCustomer.Zipcode;

@@ -7,7 +7,7 @@
     </hgroup>
         <br /><br />
         <label>Select a customer:&nbsp;</label>
-     <asp:DropDownList ID="ddlCustomers" runat="server" DataSourceID="sqlDDLCustomer" DataTextField="Name" DataValueField="CustomerID" OnSelectedIndexChanged="ddlCustomers_SelectedIndexChanged" AutoPostBack="True">
+     <asp:DropDownList OnDataBound="ddlCustomers_SelectedIndexChanged" ID="ddlCustomers" runat="server" DataSourceID="sqlDDLCustomer" DataTextField="Name" DataValueField="CustomerID" OnSelectedIndexChanged="ddlCustomers_SelectedIndexChanged" AutoPostBack="True">
      </asp:DropDownList>
      <asp:SqlDataSource ID="sqlDDLCustomer" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupport %>" SelectCommand="SELECT DISTINCT * FROM [Customers] ORDER BY [Name]"></asp:SqlDataSource>
      <br />
