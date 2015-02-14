@@ -34,7 +34,9 @@
      </table>
     <asp:Button ID="btnAdd" runat="server" Text="Add to Contact List" OnClick="btnAdd_Click" />
 
-     <asp:Button ID="btnDisplay" runat="server" Text="Display Contact List" />
+     <asp:Button ID="btnDisplay" runat="server" OnClick="btnDisplay_Click" Text="Display Contact List" />
+     <br />
+     <asp:Label ID="lblConfirm" runat="server" Font-Bold="True" Font-Size="Medium"></asp:Label>
 
     </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">

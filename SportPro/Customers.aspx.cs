@@ -12,6 +12,8 @@ public partial class Customers : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
+        lblConfirm.text = "";
+
         if (Page.IsPostBack) {
             ddlCustomers_SelectedIndexChanged(ddlCustomers, null);
         }
@@ -20,7 +22,17 @@ public partial class Customers : System.Web.UI.Page
     {
         fillLabels();
     }
-
+    protected void btnAdd_Click(object sender, EventArgs e)
+    {
+        var sessionListCopy = (List<Customer>)Session["customerList"];
+        sessionListCopy.Add((Customer)Session["currentCustomer"]);
+        Session["customerList"] = sessionListCopy;
+        lblConfirm.Text = "User added!";
+    }
+    protected void btnDisplay_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/ContactList.aspx", false);
+    }
     protected void fillLabels()
     {
         DataView dvSQL = (DataView)sqlDDLCustomer.Select(DataSourceSelectArguments.Empty);
@@ -34,13 +46,11 @@ public partial class Customers : System.Web.UI.Page
         }
         dvSQL.Dispose();
 
+        Session["currentCustomer"] = selectedCustomer;
+
         lblAddress1.Text = selectedCustomer.Address;
         lblAddress2.Text = selectedCustomer.City + ", " + selectedCustomer.State + " " + selectedCustomer.Zipcode;
         lblEmail.Text = selectedCustomer.Email;
         lblPhone.Text = selectedCustomer.Phone;
-    }
-    protected void btnAdd_Click(object sender, EventArgs e)
-    {
-               
     }
 }
