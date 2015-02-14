@@ -10,9 +10,6 @@
         <div>
 
         </div>
-        <asp:Table ID="Table1" runat="server">
-            <asp:TableRow></asp:TableRow>
-        </asp:Table>
         
      </section>
 </asp:Content>
