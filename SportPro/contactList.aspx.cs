@@ -11,8 +11,4 @@ public partial class ContactList : System.Web.UI.Page
     {
 
     }
-    protected void btnRemoveContact_Click(object sender, EventArgs e)
-    {
-
-    }
 }
