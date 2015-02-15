@@ -24,12 +24,25 @@ public partial class Customers : System.Web.UI.Page
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
+        Customer currentCustomer = (Customer)Session["currentCustomer"];
+
         if (Session["customerList"] == null)
             Session["customerList"] = new List<Customer>();
         var sessionListCopy = (List<Customer>)Session["customerList"];
-        sessionListCopy.Add((Customer)Session["currentCustomer"]);
-        Session["customerList"] = sessionListCopy;
-        lblConfirm.Text = "User added!";
+        int custExists = sessionListCopy.FindIndex(f => f.CustomerID == currentCustomer.CustomerID);
+
+        if (custExists >= 0)
+        {
+            lblConfirm.CssClass = "message-error";
+            lblConfirm.Text = "Customer already in list!";
+        }
+        else
+        {
+            sessionListCopy.Add(currentCustomer);
+            Session["customerList"] = sessionListCopy;
+            lblConfirm.CssClass = "message-success";
+            lblConfirm.Text = "User added!";
+        }
     }
     protected void btnDisplay_Click(object sender, EventArgs e)
     {
