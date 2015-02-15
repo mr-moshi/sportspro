@@ -12,7 +12,7 @@ public partial class Customers : System.Web.UI.Page
    
     protected void Page_Load(object sender, EventArgs e)
     {
-        lblConfirm.text = "";
+        lblConfirm.Text = "";
 
         if (Page.IsPostBack) {
             ddlCustomers_SelectedIndexChanged(ddlCustomers, null);
@@ -24,6 +24,8 @@ public partial class Customers : System.Web.UI.Page
     }
     protected void btnAdd_Click(object sender, EventArgs e)
     {
+        if (Session["customerList"] == null)
+            Session["customerList"] = new List<Customer>();
         var sessionListCopy = (List<Customer>)Session["customerList"];
         sessionListCopy.Add((Customer)Session["currentCustomer"]);
         Session["customerList"] = sessionListCopy;
