@@ -24,4 +24,9 @@ public class Customer
         this.State = state;
         this.CustomerID = customerid;
     }
+
+    public override string ToString()
+    {
+        return this.Name + ": " + this.Phone + "; " + this.Email;
+    }
 }
