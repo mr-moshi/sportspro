@@ -71,7 +71,9 @@ public class CustomerList
     }
     public void AddItem(Customer customer)
     {
-        this[customer.Name] = customer;
+        var currentList = (CustomerList)HttpContext.Current.Session["customerList"];
+        currentList.Customer.Add(customer);
+        HttpContext.Current.Session["customerList"] = currentList;
         Count++;
     }
     public void RemoveAt(int index)
