@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.HttpContext;
+
 
 /// <summary>
 /// Summary description for ContactList
@@ -15,6 +15,8 @@ public class CustomerList
     public CustomerList()
     {
         this.Customer = new List<Customer>();
+        Count = 0;
+
     }
  
     public Customer this[int index]
@@ -48,7 +50,7 @@ public class CustomerList
     public static CustomerList GetCustomers()
     {
         CustomerList session = (CustomerList)HttpContext.Current.Session["customerList"];
-        
+                
         if (HttpContext.Current.Session["customerList"] == null)
         {
             session = new CustomerList();
@@ -58,16 +60,22 @@ public class CustomerList
         return session;  
     }
     public void AddItem(Customer customer)
-    {
-
+    {        
+        this[Count] = customer;
+        Count++;
     }
     public void RemoveAt(int index)
     {
-
+        this[index] = null;
+        Count--;
     }
     public void Clear()
     {
-
+        foreach(Customer i in Customer)
+        {
+            this.Customer = null;
+            Count--;
+        }
     }
 
 
