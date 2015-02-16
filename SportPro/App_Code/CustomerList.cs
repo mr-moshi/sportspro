@@ -15,7 +15,7 @@ public class CustomerList
     public CustomerList()
     {
         this.Customer = new List<Customer>();
-        Count = 0;
+        this.Count = 0;
 
     }
  
@@ -64,7 +64,8 @@ public class CustomerList
         if (HttpContext.Current.Session["customerList"] == null)
         {
             session = new CustomerList();
-            HttpContext.Current.Session["customerList"] = session;
+            HttpContext.Current.Session["customerList"] = session; 
+
         }
        
         return session;  
@@ -74,16 +75,17 @@ public class CustomerList
         var currentList = (CustomerList)HttpContext.Current.Session["customerList"];
         currentList.Customer.Add(customer);
         HttpContext.Current.Session["customerList"] = currentList;
-        Count++;
+        this.Count++;
     }
     public void RemoveAt(int index)
     {
-        this[index] = null;
-        Count--;
+        this.Customer.RemoveAt(index);
+        this.Count--;
     }
     public void Clear()
     {
         this.Customer.RemoveRange(0, this.Count);
+        this.Count = 0;
     }
 
 
