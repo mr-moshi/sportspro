@@ -26,19 +26,17 @@ public partial class Customers : System.Web.UI.Page
     {
         Customer currentCustomer = (Customer)Session["currentCustomer"];
 
-        if (Session["customerList"] == null)
-            Session["customerList"] = new List<Customer>();
-        var sessionListCopy = (List<Customer>)Session["customerList"];
-        int custExists = sessionListCopy.FindIndex(f => f.CustomerID == currentCustomer.CustomerID);
+        var sessionListCopy = CustomerList.GetCustomers();
+        Customer custExists = sessionListCopy[currentCustomer.Name]; 
 
-        if (custExists >= 0)
+        if (custExists != null)
         {
             lblConfirm.CssClass = "message-error";
             lblConfirm.Text = "Customer already in list!";
         }
         else
         {
-            sessionListCopy.Add(currentCustomer);
+            sessionListCopy.AddItem(currentCustomer);
             Session["customerList"] = sessionListCopy;
             lblConfirm.CssClass = "message-success";
             lblConfirm.Text = "User added!";
