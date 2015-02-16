@@ -20,8 +20,9 @@
     <section>
         <h4>Group Members</h4>
         <ol>
-            <li>Student Name</li>
-            <li>Student Name</li>
+            <li>Scott Legrove</li>
+            <li>Sofia Pedraza</li>
+            <li>Masatoshi Windle</li>
         </ol>
     </section>
    
