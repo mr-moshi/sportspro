@@ -11,4 +11,8 @@ public partial class ContactList : System.Web.UI.Page
     {
        
     }
+    protected void btnSelectAddCusts_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("~/Customers.aspx",false);
+    }
 }

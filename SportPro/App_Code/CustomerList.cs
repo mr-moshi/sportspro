@@ -37,13 +37,23 @@ public class CustomerList
         get
         {
             int indexOf = this.Customer.FindIndex(f => f.Name == name);
-            return Customer[indexOf];
+
+            if(indexOf >= 0)
+            {
+                return Customer[indexOf];
+            }else
+                return null;
+           
         }
 
         set
         {
             int indexOf = this.Customer.FindIndex(f => f.Name == name);
-            Customer[indexOf] = value;
+
+            if (indexOf >= 0)
+            {
+                Customer[indexOf] = value;
+            }
         }
     }
 

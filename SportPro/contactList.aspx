@@ -1,10 +1,6 @@
 ﻿<%@ Page Title="Contact List" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ContactList.aspx.cs" Inherits="ContactList" %>
 
 
-
-
-
-
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">
         <h1><%: Title %>&nbsp;-&nbsp;</h1>
