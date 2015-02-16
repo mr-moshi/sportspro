@@ -70,8 +70,8 @@ public class CustomerList
         return session;  
     }
     public void AddItem(Customer customer)
-    {        
-        this[Count] = customer;
+    {
+        this[customer.Name] = customer;
         Count++;
     }
     public void RemoveAt(int index)
