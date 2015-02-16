@@ -83,11 +83,7 @@ public class CustomerList
     }
     public void Clear()
     {
-        foreach(Customer i in Customer)
-        {
-            this.Customer = null;
-            Count--;
-        }
+        this.Customer.RemoveRange(0, this.Count);
     }
 
 
