@@ -1,4 +1,9 @@
-﻿<%@ Page Title="Contact List" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ContactList.aspx.cs" Inherits="ContactList" %>
+﻿<%@ Page Title="Contact List" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="ContactList.aspx.cs" Inherits="CustomerList" %>
+
+
+
+
+
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">
@@ -14,7 +19,7 @@
             <div style="height: 51px; width: 653px">
                 <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" />
                 <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" />
-                <asp:Button ID="btnSelectAddCusts" runat="server" Text="Select Additional Customers" />
+                <asp:Button ID="btnSelectAddCusts" runat="server" Text="Select Additional Customers" OnClick="btnSelectAddCusts_Click" />
             </div>
           
         </div>
