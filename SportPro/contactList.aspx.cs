@@ -10,7 +10,6 @@ public partial class ContactList : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         var customers = CustomerList.GetCustomers();
-      //  Customer bob = customers[0];
         
         for(int i=0;i<customers.Count;i++)
         {
@@ -20,5 +19,21 @@ public partial class ContactList : System.Web.UI.Page
     protected void btnSelectAddCusts_Click(object sender, EventArgs e)
     {
         Response.Redirect("~/Customers.aspx",false);
+    }
+    protected void btnEmptyList_Click(object sender, EventArgs e)
+    {
+        CustomerList.GetCustomers().Clear();
+        ListBox1.Items.Clear();
+    }
+    protected void btnRemoveContact_Click(object sender, EventArgs e)
+    {
+        int indexOf = ListBox1.SelectedIndex;
+        if(indexOf >= 0)
+        {
+            CustomerList.GetCustomers().RemoveAt(indexOf);
+            ListBox1.Items.Clear();
+            Page_Load(btnRemoveContact, null);
+        }
+        
     }
 }

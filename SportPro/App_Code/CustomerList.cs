@@ -84,10 +84,8 @@ public class CustomerList
     }
     public void Clear()
     {
-        this.Customer.RemoveRange(0, this.Count);
+        HttpContext.Current.Session["customerList"] = null;
         this.Count = 0;
     }
-
-
 
 }
