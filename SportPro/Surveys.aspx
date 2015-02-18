@@ -82,7 +82,7 @@
             <table class="auto-style2">
                             <tr>
                                 <td>Additional Comments:</td>
-                                <td class="auto-style3"><asp:TextBox TextMode="multiline" ID="AddComments" runat="server" Width="496px" Height="80px"></asp:TextBox></td>
+                                <td class="auto-style3"><asp:TextBox TextMode="multiline" ID="AddCommentsTxtBx" runat="server" Width="496px" Height="80px"></asp:TextBox></td>
                             </tr>
                             <tr>
                                 <td colspan="2" >

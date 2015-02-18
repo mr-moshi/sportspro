@@ -26,6 +26,7 @@ public partial class Surveys : System.Web.UI.Page
                     + drvSQL["DateClosed"] + " (" + drvSQL["Title"] + ")";
 
                 incidentsListBx.Items.Add(new ListItem(currentIncident, drvSQL["IncidentID"].ToString()));
+
             }
         }
     }
@@ -58,7 +59,25 @@ public partial class Surveys : System.Web.UI.Page
             Response.Redirect("~/SurveyComplete.aspx", false);
             //string mystring = ResTimeBtnList.SelectedIndex.ToString();
         }
+        var incidentVal = incidentsListBx.SelectedValue;
 
+        DataView dvIncident = (DataView)sqlIncident.Select(DataSourceSelectArguments.Empty);
+        string contactMethod = "";
+        Survey sportProSurvey = null;
+
+        foreach (DataRowView drvSQL in dvIncident)
+        {
+            if (drvSQL["IncidentID"].ToString() == incidentVal)
+            {
+                if(Phone.Checked)
+                    contactMethod = Phone.Text;
+                if(Email.Checked)
+                    contactMethod = Email.Text;
+                sportProSurvey = new Survey((int)drvSQL["CustomerID"], (int)drvSQL["IncidentID"], int.Parse(ResTimeBtnList.SelectedValue), int.Parse(TechEffBtnList.SelectedValue), int.Parse(ProbResBtnList.SelectedValue), AddCommentsTxtBx.Text, (bool)contactChkBx.Checked, contactMethod);
+            }
+        }
+
+        HttpContext.Current.Session["surveySession"] = sportProSurvey;
     }
     protected void contactChkBx_CheckedChanged(object sender, EventArgs e)
     {
@@ -84,4 +103,3 @@ public partial class Surveys : System.Web.UI.Page
             Session["contactMethod"] = "email";
     }
 }
-
