@@ -9,7 +9,11 @@ public partial class SurveyComplete : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        ResponseMessage.Text = "Success!";
     }
-    
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Surveys.aspx");
+    }
 }
