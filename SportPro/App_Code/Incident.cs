@@ -122,10 +122,7 @@ public class Incident
 
     public string CustomerIncidentDisplay()
     {
-        return "Incident for product " + ProductCode
-            +"\n" + dateOpened
-            + " closed " + DateClosed.ToShortDateString()
-            + " (" + Title + ")"
-            + "\n"+ Description;
+        return "incident for product " + this.ProductCode + " closed "
+                    + this.DateOpened + " (" + this.Title + ")";         
     }
 }

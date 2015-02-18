@@ -16,7 +16,7 @@
                      <td><asp:RequiredFieldValidator ID="cusIdVal" runat="server" ErrorMessage="This is Required" ControlToValidate="IDTxtBx" Display="Dynamic" ForeColor="Red" ></asp:RequiredFieldValidator>
                          <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="IDTxtBx" ErrorMessage="Invalid Entry" Operator="GreaterThanEqual" Type="Integer" ValueToCompare="0"></asp:CompareValidator>
                      </td>
-                     <td class="auto-style1"><asp:Button ID="getIncidentsBtn" runat="server" Text="Get Incidents" OnClick="getIncidentsBtn_Click" CausesValidation="False" /></td>
+                     <td class="auto-style1"><asp:Button ID="getIncidentsBtn" runat="server" Text="Get Incidents" OnClick="getIncidentsBtn_Click" /></td>
                      
                  </tr>
                  <tr>
@@ -48,7 +48,7 @@
                                 ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator></td>
                             </tr>
 
-                            <tr><td>&nbsp;<asp:Label ID="TechEffLbl" runat="server" Text="Technician Efficiency:"></asp:Label>
+                            <tr><td><asp:Label ID="TechEffLbl" runat="server" Text="Technician Efficiency:"></asp:Label>
                                 </td><td><asp:RadioButtonList ID="TechEffBtnList" RepeatColumns="4"
                                 RepeatDirection="Horizontal" RepeatLayout="Table" runat="server" 
                                Width="628px">
@@ -63,7 +63,7 @@
                                 ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator></td>
                             </tr>
 
-                            <tr><td>&nbsp;<asp:Label ID="ProbResLbl" runat="server" Text="Problem Resolution:"></asp:Label>
+                            <tr><td><asp:Label ID="ProbResLbl" runat="server" Text="Problem Resolution:"></asp:Label>
                                 </td><td><asp:RadioButtonList ID="ProbResBtnList" RepeatColumns="4"
                                 RepeatDirection="Horizontal" RepeatLayout="Table" runat="server" 
                                 Width="628px">

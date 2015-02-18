@@ -14,7 +14,7 @@ public partial class Surveys : System.Web.UI.Page
     }
     protected void getIncidentsBtn_Click(object sender, EventArgs e)
     {
-        String currentIncident = "";
+        Incident currentIncident = null;
         DataView dvSQL = (DataView)sqlIncident.Select(DataSourceSelectArguments.Empty);
         incidentsListBx.Items.Clear();
         incidentsListBx.Items.Add("--Select an Incident--");
@@ -22,12 +22,11 @@ public partial class Surveys : System.Web.UI.Page
         {
             foreach (DataRowView drvSQL in dvSQL)
             {
-                currentIncident = "incident for product " + drvSQL["ProductCode"] + " closed "
-                    + drvSQL["DateClosed"] + " (" + drvSQL["Title"] + ")";
+                currentIncident = new Incident((int)drvSQL["IncidentID"], (int)drvSQL["CustomerID"], drvSQL["ProductCode"].ToString(), (int)drvSQL["TechID"], (DateTime)drvSQL["DateOpened"], (DateTime)drvSQL["DateClosed"], drvSQL["Title"].ToString(), drvSQL["Description"].ToString());
 
-                incidentsListBx.Items.Add(new ListItem(currentIncident, drvSQL["IncidentID"].ToString()));
-
+                incidentsListBx.Items.Add(new ListItem(currentIncident.CustomerIncidentDisplay(), drvSQL["IncidentID"].ToString()));
             }
+
         }
     }
     protected void incidentsListBx_SelectedIndexChanged(object sender, EventArgs e)
