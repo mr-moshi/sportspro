@@ -54,7 +54,7 @@ public class Survey
         }
         set
         {
-            this.incidentID = value
+            this.incidentID = value;
         }
     }
     public int ResponseTime 
