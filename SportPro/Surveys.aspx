@@ -14,7 +14,7 @@
                      <td class="auto-style6">Enter Customer ID:</td>
                      <td class="auto-style6"><asp:TextBox ID="IDTxtBx" runat="server" Width="176px"></asp:TextBox></td>
                      <td class="auto-style6"><asp:RequiredFieldValidator ID="cusIdVal" runat="server" ErrorMessage="This is Required" ControlToValidate="IDTxtBx" Display="Dynamic" ForeColor="Red" CssClass="message-error" ></asp:RequiredFieldValidator>
-                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="IDTxtBx" ErrorMessage="Invalid Entry" Operator="GreaterThanEqual" Type="Integer" ValueToCompare="0" CssClass="message-error"></asp:CompareValidator>
+                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="IDTxtBx" ErrorMessage="Invalid Entry" Operator="DataTypeCheck" Type="Integer" CssClass="message-error"></asp:CompareValidator>
                      </td>
                      <td class="auto-style1"><asp:Button ID="getIncidentsBtn" runat="server" Text="Get Incidents" OnClick="getIncidentsBtn_Click" /></td>
                  </tr>

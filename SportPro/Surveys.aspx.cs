@@ -14,26 +14,38 @@ public partial class Surveys : System.Web.UI.Page
     }
     protected void getIncidentsBtn_Click(object sender, EventArgs e)
     {
+        if (!Page.IsValid) return;
         Incident currentIncident = null;
+        string Incidents = "SELECT * FROM [Incidents] WHERE (([DateClosed] IS NOT NULL) AND ([CustomerID] = @CustomerID)) ORDER BY [DateClosed]";
+        string Customers = "SELECT * FROM [Customers] WHERE [CustomerID] = @CustomerID";
+
+        sqlIncident.SelectCommand = Customers;
         DataView dvSQL = (DataView)sqlIncident.Select(DataSourceSelectArguments.Empty);
-        incidentsListBx.Items.Clear();
- 
-        if (dvSQL.Count != 0)
-        {       
-            incidentsListBx.Items.Add("--Select an Incident--");
-            lblMissing.Text = "&nbsp;";
-            foreach (DataRowView drvSQL in dvSQL)
-            {
-                currentIncident = new Incident((int)drvSQL["IncidentID"], (int)drvSQL["CustomerID"], drvSQL["ProductCode"].ToString(), (int)drvSQL["TechID"], (DateTime)drvSQL["DateOpened"], (DateTime)drvSQL["DateClosed"], drvSQL["Title"].ToString(), drvSQL["Description"].ToString());
-
-                incidentsListBx.Items.Add(new ListItem(currentIncident.CustomerIncidentDisplay(), drvSQL["IncidentID"].ToString()));
-            }
-
-        }
+        if (dvSQL.Count == 0)
+            lblMissing.Text = "User does not exist!";
         else
         {
-            lblMissing.Text = "No Incidents Available!";
+            sqlIncident.SelectCommand = Incidents;
+            dvSQL = (DataView)sqlIncident.Select(DataSourceSelectArguments.Empty);
+            incidentsListBx.Items.Clear();
+
+            if (dvSQL.Count != 0)
+            {
+                incidentsListBx.Items.Add("--Select an Incident--");
+                lblMissing.Text = "&nbsp;";
+                foreach (DataRowView drvSQL in dvSQL)
+                {
+                    currentIncident = new Incident((int)drvSQL["IncidentID"], (int)drvSQL["CustomerID"], drvSQL["ProductCode"].ToString(), (int)drvSQL["TechID"], (DateTime)drvSQL["DateOpened"], (DateTime)drvSQL["DateClosed"], drvSQL["Title"].ToString(), drvSQL["Description"].ToString());
+
+                    incidentsListBx.Items.Add(new ListItem(currentIncident.CustomerIncidentDisplay(), drvSQL["IncidentID"].ToString()));
+                }
+
+            }
+            else
+                lblMissing.Text = "No Incidents Available!";
         }
+
+        dvSQL.Dispose();
     }
     protected void incidentsListBx_SelectedIndexChanged(object sender, EventArgs e)
     {
