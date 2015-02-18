@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">
-        <h1><%: Title %>&nbsp;-&nbsp;</h1>
+        <h1><%: Title %>&nbsp;Survey -&nbsp;</h1>
         <h2>Collect Feedback from customers</h2>
     </hgroup>
     <section>
@@ -21,7 +21,7 @@
                  </tr>
                  <tr>
                      <td colspan="3"><asp:ListBox ID="incidentsListBx" runat="server" Width="496px" OnSelectedIndexChanged="incidentsListBx_SelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
-                         <asp:SqlDataSource ID="sqlIncident" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupport %>" SelectCommand="SELECT * FROM [Incidents] WHERE ([CustomerID] = @CustomerID)" >
+                         <asp:SqlDataSource ID="sqlIncident" runat="server" ConnectionString="<%$ ConnectionStrings:TechSupport %>" SelectCommand="SELECT * FROM [Incidents] WHERE (([DateClosed] IS NOT NULL) AND ([CustomerID] = @CustomerID)) ORDER BY [DateClosed]" >
                              <SelectParameters>
                                  <asp:ControlParameter ControlID="IDTxtBx" Name="CustomerID" PropertyName="Text" Type="Int32" />
                              </SelectParameters>
@@ -107,9 +107,9 @@
                                 
                                 </script>
                             <tr><td class="auto-style4"><asp:RadioButton id="Email" GroupName="contact"
-                                    Text="Contact by Email" runat="server" Enabled="False"/></td>
+                                    Text="Contact by Email" runat="server" Enabled="False" OnCheckedChanged="Contact_CheckedChanged"/></td>
                                 <td class="auto-style5"><asp:RadioButton id="Phone" GroupName="contact"
-                                Text="Contact by Phone" runat="server" Enabled="False"/></td>
+                                Text="Contact by Phone" runat="server" Enabled="False" OnCheckedChanged="Contact_CheckedChanged"/></td>
             
                             <td class="auto-style4"><asp:CustomValidator id="contactVal" runat="server" Display="Dynamic" ErrorMessage="Required Selection" ClientValidationFunction="Contact_Validation_Client" OnServerValidate="Contact_Validation_Server" Enabled="False" ForeColor="Red"></asp:CustomValidator></td>
                             </tr>

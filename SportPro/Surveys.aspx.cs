@@ -25,7 +25,7 @@ public partial class Surveys : System.Web.UI.Page
                 currentIncident = "incident for product " + drvSQL["ProductCode"] + " closed "
                     + drvSQL["DateClosed"] + " (" + drvSQL["Title"] + ")";
 
-                incidentsListBx.Items.Add(currentIncident);
+                incidentsListBx.Items.Add(new ListItem(currentIncident, drvSQL["IncidentID"].ToString()));
             }
         }
     }
@@ -74,6 +74,14 @@ public partial class Surveys : System.Web.UI.Page
             Phone.Enabled = false;
             contactVal.Enabled = false;
         }
+    }
+
+    protected void Contact_CheckedChanged(object sender, EventArgs e)
+    {
+        if (Phone.Checked == true)
+            Session["contactMethod"] = "phone";
+        else
+            Session["contactMethod"] = "email";
     }
 }
 

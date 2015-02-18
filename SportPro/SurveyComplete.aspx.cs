@@ -9,11 +9,12 @@ public partial class SurveyComplete : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        ResponseMessage.Text = "Success!";
+        if(Session["contactMethod"] != null)
+            ResponseMessage.Text = "A customer service agent will contact you within 24 hours.";
     }
 
-    protected void Button1_Click(object sender, EventArgs e)
+    protected void ReturnSurveyBtn_Click(object sender, EventArgs e)
     {
-        Response.Redirect("Surveys.aspx");
+        Response.Redirect("~/Surveys.aspx", false);
     }
 }

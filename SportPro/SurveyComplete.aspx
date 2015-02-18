@@ -2,16 +2,15 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">
-        <h1>Surveys<%: Title %>&nbsp;-&nbsp;</h1>
-        <h2>
-           <asp:Label ID="ResponseMessage" runat="server" ForeColor="#00CC00"></asp:Label>
-         </h2>
+        <h1>Survey Completed&nbsp;-&nbsp;</h1>
     </hgroup>
+    <asp:Label ID="DefaulrResponseMessage" runat="server" ForeColor="#00CC00" Text="Thank you for your Feedback!"></asp:Label><br />
+    <asp:Label ID="ResponseMessage" runat="server" ForeColor="#00CC00"></asp:Label><br />
      <table">
          <tr>
              <td>&nbsp;</tr></table><section>
         <div>
-            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Return to Survey" />
+            <asp:Button ID="ReturnSurveyBtn" runat="server" OnClick="ReturnSurveyBtn_Click" Text="Return to Survey" />
 
         </div>
      </section>
