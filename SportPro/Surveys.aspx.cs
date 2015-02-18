@@ -17,9 +17,11 @@ public partial class Surveys : System.Web.UI.Page
         Incident currentIncident = null;
         DataView dvSQL = (DataView)sqlIncident.Select(DataSourceSelectArguments.Empty);
         incidentsListBx.Items.Clear();
-        incidentsListBx.Items.Add("--Select an Incident--");
-        if (dvSQL != null)
-        {
+ 
+        if (dvSQL.Count != 0)
+        {       
+            incidentsListBx.Items.Add("--Select an Incident--");
+            lblMissing.Text = "&nbsp;";
             foreach (DataRowView drvSQL in dvSQL)
             {
                 currentIncident = new Incident((int)drvSQL["IncidentID"], (int)drvSQL["CustomerID"], drvSQL["ProductCode"].ToString(), (int)drvSQL["TechID"], (DateTime)drvSQL["DateOpened"], (DateTime)drvSQL["DateClosed"], drvSQL["Title"].ToString(), drvSQL["Description"].ToString());
@@ -27,6 +29,10 @@ public partial class Surveys : System.Web.UI.Page
                 incidentsListBx.Items.Add(new ListItem(currentIncident.CustomerIncidentDisplay(), drvSQL["IncidentID"].ToString()));
             }
 
+        }
+        else
+        {
+            lblMissing.Text = "No Incidents Available!";
         }
     }
     protected void incidentsListBx_SelectedIndexChanged(object sender, EventArgs e)
