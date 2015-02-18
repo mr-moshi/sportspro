@@ -8,13 +8,125 @@ using System.Web;
 /// </summary>
 public class Survey
 {
+    private int customerID;
+    private int incidentID;
+    private int repsonseTime;
+    private int techEfficiency;
+    private int resolution;
+    private string comments;
+    private bool contact;
+    private string contactby;
+
 	public Survey(){}
-    public int CustomerID { get; set; }
-    public int IncidentID { get; set; }
-    public int ResponseTime { get; set; }
-    public int TechEfficiency { get; set; }
-    public int Resolution { get; set; }
-    public string Comments { get; set; }
-    public bool Contact { get; set; }
-    public string ContactBy { get; set; }
+
+    public Survey(int incidentID)
+    {
+        this.incidentID = incidentID;
+    }
+
+    public Survey(int customerID,int incidentID,int responseTime,int techEfficiency,int resolution,string comments,bool contact,string contactBy)
+    {
+        this.customerID = customerID;
+        this.incidentID = incidentID;
+        this.repsonseTime = responseTime;
+        this.techEfficiency = techEfficiency;
+        this.resolution = resolution;
+        this.comments = comments;
+        this.contact = contact;
+        this.contactby = contactBy;
+    }
+    public int CustomerID
+    { 
+        get
+        {
+            return this.customerID;
+        }
+        set
+        {
+            this.customerID = value;
+        }
+    }
+    public int IncidentID 
+    { 
+        get
+        {
+            return this.incidentID;
+        }
+        set
+        {
+            this.incidentID = value
+        }
+    }
+    public int ResponseTime 
+    {
+        get
+        {
+            return this.repsonseTime;
+        }
+
+        set
+        {
+            this.repsonseTime = value;
+        }
+    }
+    public int TechEfficiency
+    {
+        get
+        {
+            return this.techEfficiency;
+        }
+
+        set
+        {
+            this.techEfficiency = value;
+        }
+    }
+    public int Resolution 
+    {
+        get
+        {
+            return this.resolution;
+        }
+ 
+        set
+        {
+            this.resolution = value;
+        }
+    }
+    public string Comments
+    {
+        get
+        {
+            return this.comments;
+        }
+
+        set
+        {
+            this.comments = value;
+        }
+    }
+    public bool Contact
+    {
+        get
+        {
+            return this.contact;
+        }
+
+        set
+        {
+            this.contact = value;
+        }
+    }
+    public string ContactBy 
+    {
+        get
+        {
+            return this.contactby;
+        }
+
+        set
+        {
+            this.contactby  = value;
+        }
+    }
 }

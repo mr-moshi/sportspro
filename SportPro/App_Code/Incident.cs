@@ -13,7 +13,7 @@ public class Incident
     private string description;
 
     public Incident() { }
-    //testing
+    
     public Incident(int incidentID)
     {
         this.incidentID = incidentID;
