@@ -10,11 +10,11 @@ public partial class ContactList : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         var customers = CustomerList.GetCustomers();
-        
-        for(int i=0;i<customers.Count;i++)
+
+        for (int i = 0; i < customers.Count; i++)
         {
             ListBox1.Items.Add(customers[i].ToString());
-        }
+        }       
     }
     protected void btnSelectAddCusts_Click(object sender, EventArgs e)
     {
@@ -27,13 +27,22 @@ public partial class ContactList : System.Web.UI.Page
     }
     protected void btnRemoveContact_Click(object sender, EventArgs e)
     {
-        int indexOf = ListBox1.SelectedIndex;
-        if(indexOf >= 0)
+        if(ListBox1.SelectedIndex >= 0)
         {
+            valRemoveCus.IsValid = true;
+        }
+        else
+        {
+            valRemoveCus.IsValid = false;
+        }
+
+        if(valRemoveCus.IsValid)
+        {
+            int indexOf = ListBox1.SelectedIndex;
+
             CustomerList.GetCustomers().RemoveAt(indexOf);
             ListBox1.Items.Clear();
             Page_Load(btnRemoveContact, null);
-        }
-        
+        }   
     }
 }

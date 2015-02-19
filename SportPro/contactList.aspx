@@ -14,8 +14,9 @@
             
             <div style="height: 51px; width: 653px">
                 <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" OnClick="btnEmptyList_Click" />
-                <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" OnClick="btnRemoveContact_Click" />
+                <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" OnClick="btnRemoveContact_Click"/>
                 <asp:Button ID="btnSelectAddCusts" runat="server" Text="Select Additional Customers" OnClick="btnSelectAddCusts_Click" />
+                <asp:CustomValidator ID="valRemoveCus" controToValidate="ListBox1" runat="server" ErrorMessage="Please Select a client to remove"></asp:CustomValidator>
             </div>
           
         </div>
