@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" Runat="Server">
      <hgroup class="title">
-        <h1>Survey Completed&nbsp;-&nbsp;</h1>
+        <h1>Survey Completed</h1>
     </hgroup>
     <asp:Label ID="DefaulrResponseMessage" runat="server" ForeColor="#00CC00" Text="Thank you for your Feedback!"></asp:Label><br />
     <asp:Label ID="ResponseMessage" runat="server" ForeColor="#00CC00"></asp:Label><br />
@@ -12,7 +12,7 @@
         <div>
             <asp:Button ID="ReturnSurveyBtn" runat="server" OnClick="ReturnSurveyBtn_Click" Text="Return to Survey" />
 
-        </div>
+        </div>                 
      </section>
      </asp:Content>
 <asp:Content ID="Content1" runat="server" contentplaceholderid="HeadContent">

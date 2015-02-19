@@ -9,7 +9,7 @@ public partial class SurveyComplete : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(Session["contactMethod"] != null)
+        if((bool)Session["contact"])
             ResponseMessage.Text = "A customer service agent will contact you within 24 hours.";
     }
 

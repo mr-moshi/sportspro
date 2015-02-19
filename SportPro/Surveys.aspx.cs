@@ -10,7 +10,8 @@ public partial class Surveys : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-
+        Email.Attributes.Add("value", "email");
+        Phone.Attributes.Add("value", "phone");
     }
     protected void getIncidentsBtn_Click(object sender, EventArgs e)
     {
@@ -67,7 +68,8 @@ public partial class Surveys : System.Web.UI.Page
     }
     protected void Contact_Validation_Server(object source, ServerValidateEventArgs args)
     {
-        args.IsValid = (Email.Checked == true || Phone.Checked == true);}
+        args.IsValid = (Email.Checked == true || Phone.Checked == true);
+    }
     protected void submitBtn_Click(object sender, EventArgs e)
     {
         //Page.Validate();
@@ -87,13 +89,16 @@ public partial class Surveys : System.Web.UI.Page
             if (drvSQL["IncidentID"].ToString() == incidentVal)
             {
                 if(Phone.Checked)
-                    contactMethod = Phone.Text;
+                    contactMethod = Phone.Attributes["value"].ToString();
                 if(Email.Checked)
-                    contactMethod = Email.Text;
-                sportProSurvey = new Survey((int)drvSQL["CustomerID"], (int)drvSQL["IncidentID"], int.Parse(ResTimeBtnList.SelectedValue), int.Parse(TechEffBtnList.SelectedValue), int.Parse(ProbResBtnList.SelectedValue), AddCommentsTxtBx.Text, (bool)contactChkBx.Checked, contactMethod);
+                    contactMethod = Email.Attributes["value"].ToString();
+                sportProSurvey = new Survey((int)drvSQL["CustomerID"], (int)drvSQL["IncidentID"], 
+                    int.Parse(ResTimeBtnList.SelectedValue), int.Parse(TechEffBtnList.SelectedValue), 
+                    int.Parse(ProbResBtnList.SelectedValue), AddCommentsTxtBx.Text, (bool)contactChkBx.Checked, 
+                    contactMethod);
             }
         }
-
+        HttpContext.Current.Session["contact"] = (bool)contactChkBx.Checked;
         HttpContext.Current.Session["surveySession"] = sportProSurvey;
     }
     protected void contactChkBx_CheckedChanged(object sender, EventArgs e)

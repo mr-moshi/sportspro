@@ -40,7 +40,7 @@
                                 <asp:Label ID="ResTimLbl" runat="server" Text="Response Time: "></asp:Label>
                                 </td><td><asp:RadioButtonList ID="ResTimeBtnList" RepeatColumns="4"
                                 RepeatDirection="Horizontal" RepeatLayout="Table" runat="server" 
-                                Width="630px" AutoPostBack="True">
+                                Width="630px">
                                 <asp:ListItem Value="1">Not Satisfied</asp:ListItem>
                                 <asp:ListItem Value="2">Somewhat Satisfied</asp:ListItem>
                                 <asp:ListItem Value="3">Satisfied</asp:ListItem>
@@ -90,7 +90,7 @@
                             </tr>
                             <tr>
                                 <td colspan="3" >
-                                    <asp:CheckBox ID="contactChkBx" runat="server" AutoPostBack="True" OnCheckedChanged="contactChkBx_CheckedChanged" /> Please contact me to discuss this incident
+                                    <asp:CheckBox ID="contactChkBx" runat="server" AutoPostBack="True" OnCheckedChanged="contactChkBx_CheckedChanged" Text="Please contact me to discuss this incident " /> 
                                 </td>
                             </tr>
                 <script type="text/javascript" >

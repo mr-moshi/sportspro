@@ -129,4 +129,10 @@ public class Survey
             this.contactby  = value;
         }
     }
+
+    //public override string ToString()
+    //{
+    //    return "Response: " + this.ResponseTime + "\nTech: " + this.TechEfficiency
+    //        + "\nProb: " + this.Resolution + "\nContact: " + this.ContactBy;
+    //}
 }
