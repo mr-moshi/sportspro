@@ -12,11 +12,11 @@
             <table>
                  <tr>
                      <td class="auto-style6">Enter Customer ID:</td>
-                     <td class="auto-style6"><asp:TextBox ID="IDTxtBx" runat="server" Width="176px"></asp:TextBox></td>
-                     <td class="auto-style6"><asp:RequiredFieldValidator ID="cusIdVal" runat="server" ErrorMessage="This is Required" ControlToValidate="IDTxtBx" Display="Dynamic" ForeColor="Red" CssClass="message-error" ></asp:RequiredFieldValidator>
-                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="IDTxtBx" ErrorMessage="Invalid Entry" Operator="DataTypeCheck" Type="Integer" CssClass="message-error"></asp:CompareValidator>
+                     <td class="auto-style6"><asp:TextBox ID="IDTxtBx" runat="server" Width="176px" ValidationGroup="grpID"></asp:TextBox></td>
+                     <td class="auto-style6"><asp:RequiredFieldValidator ID="cusIdVal" runat="server" ErrorMessage="This is Required" ControlToValidate="IDTxtBx" Display="Dynamic" ForeColor="Red" CssClass="message-error" ValidationGroup="grpID" ></asp:RequiredFieldValidator>
+                         <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToValidate="IDTxtBx" ErrorMessage="Invalid Entry" Operator="DataTypeCheck" Type="Integer" CssClass="message-error" ValidationGroup="grpID"></asp:CompareValidator>
                      </td>
-                     <td class="auto-style1"><asp:Button ID="getIncidentsBtn" runat="server" Text="Get Incidents" OnClick="getIncidentsBtn_Click" /></td>
+                     <td class="auto-style1"><asp:Button ID="getIncidentsBtn" runat="server" Text="Get Incidents" OnClick="getIncidentsBtn_Click" ValidationGroup="grpID" /></td>
                  </tr>
                 <tr>
                     <td colspan="4">
@@ -40,7 +40,7 @@
                                 <asp:Label ID="ResTimLbl" runat="server" Text="Response Time: "></asp:Label>
                                 </td><td><asp:RadioButtonList ID="ResTimeBtnList" RepeatColumns="4"
                                 RepeatDirection="Horizontal" RepeatLayout="Table" runat="server" 
-                                Width="630px">
+                                Width="630px" ValidationGroup="grpSubmit">
                                 <asp:ListItem Value="1">Not Satisfied</asp:ListItem>
                                 <asp:ListItem Value="2">Somewhat Satisfied</asp:ListItem>
                                 <asp:ListItem Value="3">Satisfied</asp:ListItem>
@@ -49,13 +49,13 @@
             
                             <td><asp:RequiredFieldValidator runat="server" ID="ResTimeVal"
                                 ControlToValidate="ResTimeBtnList" Text="Required" 
-                                ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator></td>
+                                ForeColor="Red" Enabled="False" ValidationGroup="grpSubmit"></asp:RequiredFieldValidator></td>
                             </tr>
 
                             <tr><td><asp:Label ID="TechEffLbl" runat="server" Text="Technician Efficiency:"></asp:Label>
                                 </td><td><asp:RadioButtonList ID="TechEffBtnList" RepeatColumns="4"
                                 RepeatDirection="Horizontal" RepeatLayout="Table" runat="server" 
-                               Width="628px">
+                               Width="628px" ValidationGroup="grpSubmit">
                                 <asp:ListItem Value="1">Not Satisfied</asp:ListItem>
                                 <asp:ListItem Value="2">Somewhat Satisfied</asp:ListItem>
                                 <asp:ListItem Value="3">Satisfied</asp:ListItem>
@@ -64,13 +64,13 @@
             
                             <td><asp:RequiredFieldValidator runat="server" ID="TechEffVal"
                                 ControlToValidate="TechEffBtnList" Text="Required" 
-                                ForeColor="Red" Enabled="False"></asp:RequiredFieldValidator></td>
+                                ForeColor="Red" Enabled="False" ValidationGroup="grpSubmit"></asp:RequiredFieldValidator></td>
                             </tr>
 
                             <tr><td><asp:Label ID="ProbResLbl" runat="server" Text="Problem Resolution:"></asp:Label>
                                 </td><td><asp:RadioButtonList ID="ProbResBtnList" RepeatColumns="4"
                                 RepeatDirection="Horizontal" RepeatLayout="Table" runat="server" 
-                                Width="628px">
+                                Width="628px" ValidationGroup="grpSubmit">
                                 <asp:ListItem Value="1">Not Satisfied</asp:ListItem>
                                 <asp:ListItem Value="2">Somewhat Satisfied</asp:ListItem>
                                 <asp:ListItem Value="3">Satisfied</asp:ListItem>
@@ -79,7 +79,7 @@
             
                             <td><asp:RequiredFieldValidator runat="server" ID="ProbResVal"
                                 ControlToValidate="ProbResBtnList" Text="Required" 
-                                ForeColor="Red" Enabled="False" Display="Dynamic"></asp:RequiredFieldValidator></td>
+                                ForeColor="Red" Enabled="False" Display="Dynamic" ValidationGroup="grpSubmit"></asp:RequiredFieldValidator></td>
                             </tr>
                         </table>
 
@@ -110,11 +110,11 @@
                                 
                                 </script>
                             <tr><td class="auto-style8"><asp:RadioButton id="Email" GroupName="contact"
-                                    Text="Contact by Email" runat="server" Enabled="False" OnCheckedChanged="Contact_CheckedChanged"/></td>
+                                    Text="Contact by Email" runat="server" Enabled="False" OnCheckedChanged="Contact_CheckedChanged" ValidationGroup="grpSubmit"/></td>
                                 <td class="auto-style5"><asp:RadioButton id="Phone" GroupName="contact"
-                                Text="Contact by Phone" runat="server" Enabled="False" OnCheckedChanged="Contact_CheckedChanged"/></td>
+                                Text="Contact by Phone" runat="server" Enabled="False" OnCheckedChanged="Contact_CheckedChanged" ValidationGroup="grpSubmit"/></td>
             
-                            <td class="auto-style4"><asp:CustomValidator id="contactVal" runat="server" Display="Dynamic" ErrorMessage="Required Selection" ClientValidationFunction="Contact_Validation_Client" OnServerValidate="Contact_Validation_Server" Enabled="False" ForeColor="Red"></asp:CustomValidator></td>
+                            <td class="auto-style4"><asp:CustomValidator id="contactVal" runat="server" Display="Dynamic" ErrorMessage="Required Selection" ClientValidationFunction="Contact_Validation_Client" OnServerValidate="Contact_Validation_Server" Enabled="False" ForeColor="Red" ValidationGroup="grpSubmit"></asp:CustomValidator></td>
                             </tr>
                             <tr>
                                 <td class="auto-style9" ><asp:Button ID="submitBtn" runat="server" Text="Submit" OnClick="submitBtn_Click" /></td>
