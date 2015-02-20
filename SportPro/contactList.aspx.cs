@@ -12,8 +12,8 @@ public partial class ContactList : System.Web.UI.Page
         var customers = CustomerList.GetCustomers();
 
         for (int i = 0; i < customers.Count; i++)
-        {
-            ListBox1.Items.Add(customers[i].ToString());
+        {   
+                ListBox1.Items.Add(customers[i].ToString());
         }       
     }
     protected void btnSelectAddCusts_Click(object sender, EventArgs e)
@@ -27,22 +27,19 @@ public partial class ContactList : System.Web.UI.Page
     }
     protected void btnRemoveContact_Click(object sender, EventArgs e)
     {
-        if(ListBox1.SelectedIndex >= 0)
-        {
-            valRemoveCus.IsValid = true;
-        }
-        else
-        {
-            valRemoveCus.IsValid = false;
-        }
+        int indexOf = ListBox1.SelectedIndex;
 
-        if(valRemoveCus.IsValid)
+        if(indexOf >=0)
         {
-            int indexOf = ListBox1.SelectedIndex;
-
             CustomerList.GetCustomers().RemoveAt(indexOf);
             ListBox1.Items.Clear();
             Page_Load(btnRemoveContact, null);
-        }   
+        }
+       
+   
+    }
+    protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
     }
 }
