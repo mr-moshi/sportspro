@@ -13,9 +13,11 @@
             <asp:ListBox ID="ListBox1" runat="server" Height="242px" Width="632px" OnSelectedIndexChanged="ListBox1_SelectedIndexChanged"></asp:ListBox>
             
             <div style="height: 75px; width: 645px">
-                <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" OnClick="btnEmptyList_Click" />
-                <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" OnClick="btnRemoveContact_Click" CausesValidation="False"/>
-                <asp:Button ID="btnSelectAddCusts" runat="server" Text="Select Additional Customers" OnClick="btnSelectAddCusts_Click" />
+                <asp:Button ID="btnEmptyList" runat="server" Text="Empty List" OnClick="btnEmptyList_Click" CausesValidation="False" />
+                <asp:Button ID="btnRemoveContact" runat="server" Text="Remove Contact" OnClick="btnRemoveContact_Click" CausesValidation="True"/>
+                <asp:Button ID="btnSelectAddCusts" runat="server" Text="Select Additional Customers" OnClick="btnSelectAddCusts_Click" CausesValidation="False" />
+                <br />
+                <asp:RequiredFieldValidator ID="valRequired" ControlToValidate="ListBox1" runat="server" CssClass="message-error" ErrorMessage="Please select a contact"></asp:RequiredFieldValidator>
             </div>
         </div>
      </section>
